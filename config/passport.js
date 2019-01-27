@@ -64,7 +64,7 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, don
 passport.use(new SnapchatStrategy({
   clientID: process.env.SNAPCHAT_ID,
   clientSecret: process.env.SNAPCHAT_SECRET,
-  callbackURL: '/auth/snapchat/callback',
+  callbackURL: 'https://studybuddy-dev.azurewebsites.net/auth/snapchat/callback',
   profileFields: ['id', 'displayName', 'bitmoji'],
   scope: ['user.display_name', 'user.bitmoji.avatar'],
   passReqToCallback: true
@@ -118,7 +118,7 @@ passport.use(new SnapchatStrategy({
 passport.use(new FacebookStrategy({
   clientID: process.env.FACEBOOK_ID,
   clientSecret: process.env.FACEBOOK_SECRET,
-  callbackURL: '/auth/facebook/callback',
+  callbackURL: 'https://studybuddy-dev.azurewebsites.net/auth/facebook/callback',
   profileFields: ['name', 'email', 'link', 'locale', 'timezone', 'gender'],
   passReqToCallback: true
 }, (req, accessToken, refreshToken, profile, done) => {
@@ -291,7 +291,7 @@ passport.use(new TwitterStrategy({
 passport.use(new GoogleStrategy({
   clientID: process.env.GOOGLE_ID,
   clientSecret: process.env.GOOGLE_SECRET,
-  callbackURL: '/auth/google/callback',
+  callbackURL: 'https://studybuddy-dev.azurewebsites.net/auth/google/callback',
   passReqToCallback: true
 }, (req, accessToken, refreshToken, profile, done) => {
   if (req.user) {
