@@ -1,3 +1,23 @@
+Main base/template: Hackathon Starter (details below)
+
+StudyBuddy is my team's NWHacks2019 Hackathon Project. 
+
+The web-app lets a user sign up and find students near them studying the same courses the user is, helping
+the user find study partners. 
+The idea is to promote collaborative learning.
+
+This was my first time working with express, mongoDB, pug and Google api. I spent most of my time on the backend
+figuring out how express and Google maps api works. For now there are only dummy students showing up on the map, but
+log in, profile, user's current location, works.
+
+I would like to implement implement a chat aspect to it, so that the user can message other students who show 
+up live on the map if they are online, and make posts about future study plans let users collaborate. 
+
+Find screenshots here:
+https://rahmanshamit.imgur.com/all/?third_party=1
+
+
+
 ![](https://lh4.googleusercontent.com/-PVw-ZUM9vV8/UuWeH51os0I/AAAAAAAAD6M/0Ikg7viJftQ/w1286-h566-no/hackathon-starter-logo.jpg)
 Hackathon Starter
 =======================
@@ -20,9 +40,7 @@ When I started this project, my primary focus was on **simplicity** and **ease o
 I also tried to make it as **generic** and **reusable** as possible to cover most use cases of hackathon web apps,
 without being too specific. In the worst case you can use this as a learning guide for your projects,
 if for example you are only interested in **Sign in with Google** authentication and nothing else.
-
 ### Testimonials
-
 > [**“Nice! That README alone is already gold!”**](https://www.producthunt.com/tech/hackathon-starter#comment-224732)<br>
 > — Adrian Le Bas
 
