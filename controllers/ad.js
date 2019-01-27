@@ -26,6 +26,16 @@ exports.postAd = (req, res, next) => {
         message: req.user
     });
 
+    ad.save((err) => {
+        if (err) { return next(err); }
+        req.logIn(Ad, (err) => {
+            if (err) {
+                return next(err);
+            }
+            res.redirect('map');
+        });
+    });
+
     if (errors) {
         req.flash('errors', errors);
         return res.redirect('/findabuddy');
