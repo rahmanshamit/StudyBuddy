@@ -116,7 +116,7 @@ app.use((req, res, next) => {
       req.session.returnTo = '/map';
   } else if (req.user
     && (req.path === '/account' || req.path.match(/^\/api/))) {
-    req.session.returnTo = req.originalUrl;
+      req.session.returnTo = './map';
   }
   next();
 });
