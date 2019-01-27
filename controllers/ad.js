@@ -37,6 +37,6 @@ exports.postAd = (req, res, next) => {
     else {
         return res.redirect('/map');
     }
-};
+});
 
 }
