@@ -1,5 +1,6 @@
 // KITSILANO 4
 const mapController = require('./controllers/map');
+const adController = require('./controllers/ad');
 
 /**
  * Module dependencies.
@@ -151,6 +152,7 @@ app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userControl
 
 // KITSILANO 4
 app.get('/map', mapController.getMap);
+app.get('/findabuddy', adController.getFindabuddy);
 app.use(express.static('public'));
 
 /**
