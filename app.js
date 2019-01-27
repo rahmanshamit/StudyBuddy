@@ -107,21 +107,6 @@ app.use((req, res, next) => {
   next();
 });
 
-// app.use((req, res, next) => {
-//   // After successful login, redirect back to the intended page
-//   if (!req.user
-//     && req.path !== '/login'
-//     && req.path !== '/signup'
-//     && !req.path.match(/^\/auth/)
-//     && !req.path.match(/\./)) {
-//     req.session.returnTo = '/map';
-//   } else if (req.user
-//     && (req.path === '/account' || req.path.match(/^\/api/))) {
-//     req.session.returnTo = '/map';
-//   }
-//   next();
-// });
-
 app.use('/', express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 }));
 app.use('/js/lib', express.static(path.join(__dirname, 'node_modules/popper.js/dist/umd'), { maxAge: 31557600000 }));
 app.use('/js/lib', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/js'), { maxAge: 31557600000 }));

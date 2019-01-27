@@ -21,7 +21,7 @@ exports.postAd = (req, res, next) => {
     console.log(user);
     console.log(user.profile.name);
 
-    const Ad = new Ad({
+    const ad = new Ad({
         userId: req.user,
         message: req.user
     });
