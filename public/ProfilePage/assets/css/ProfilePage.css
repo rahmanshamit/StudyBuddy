@@ -2721,13 +2721,14 @@ input, select, textarea {
 			}
 
 			#header > header h1 {
-				font-size: 1.75em;
+				font-size: 2.00em;
+				font: sans-serif;
 				margin: 0;
 			}
 
 			#header > header p {
 				color: #d2f2e9;
-				font-style: italic;
+				//font-style: italic;
 				margin: 1em 0 0 0;
 			}
 
@@ -2764,7 +2765,7 @@ input, select, textarea {
 			}
 
 				#header > nav ul li {
-					border-top: solid 2px #5ccfb1;
+					border-top: solid 2px #00caffff;
 					display: block;
 					padding: 0;
 				}
@@ -2782,13 +2783,21 @@ input, select, textarea {
 					}
 
 						#header > nav ul li a.active {
-							background: #fff;
-							color: #333333ff !important;
+							font-size: 20px;
+							font: sans-serif;
+							background: #333333ff;
+							color: #fff !important;
+						}
+						
+						#header > nav ul li a.hover {
+							background: #ff6600ff;
+							border-bottom-color: 00caffff;
 						}
 
 					#header > nav ul li:first-child {
 						border-top: 0;
 					}
+					
 
 /* Wrapper */
 
