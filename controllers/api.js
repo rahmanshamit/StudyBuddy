@@ -318,7 +318,7 @@ exports.getSteam = async (req, res, next) => {
         if (body.response.total_count > 0) {
           params.appid = body.response.games[0].appid;
           return getAsync({ url: 'http://api.steampowered.com/ISteamUserStats/GetPlayerAchievements/v0001/', qs: params, json: true })
-            .then(({ request, body }) => {
+    :        .then(({ request, body }) => {
               if (request.statusCode === 401) {
                 throw new Error('Invalid Steam API Key');
               }
