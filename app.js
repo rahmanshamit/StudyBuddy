@@ -121,6 +121,7 @@ app.use((req, res, next) => {
   next();
 });
 
+
 app.use('/', express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 }));
 app.use('/js/lib', express.static(path.join(__dirname, 'node_modules/popper.js/dist/umd'), { maxAge: 31557600000 }));
 app.use('/js/lib', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/js'), { maxAge: 31557600000 }));
@@ -151,6 +152,8 @@ app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userControl
 
 // KITSILANO 4
 app.get('/map', mapController.getMap);
+app.use(express.static('public'));
+
 
 /**
  * API examples routes.
