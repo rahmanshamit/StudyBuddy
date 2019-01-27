@@ -30,6 +30,7 @@ exports.postLogin = (req, res, next) => {
   req.sanitize('email').normalizeEmail({ gmail_remove_dots: false });
 
   const errors = req.validationErrors();
+    console.log('Got a login request!');
 
   if (errors) {
     req.flash('errors', errors);
@@ -40,12 +41,13 @@ exports.postLogin = (req, res, next) => {
     if (err) { return next(err); }
     if (!user) {
       req.flash('errors', info);
+    console.log('Got a login error!');
       return res.redirect('/login');
     }
     req.logIn(user, (err) => {
       if (err) { return next(err); }
       req.flash('success', { msg: 'Success! You are logged in.' });
-      res.redirect(req.session.returnTo || '/');
+    res.redirect('/map');
     });
   })(req, res, next);
 };

@@ -26,9 +26,10 @@ head
   link(rel='stylesheet' type='text/css' href='/loginPublic/css/main.css')
   // ===============================================================================================
 .limiter
-  .container-login100(style="background-image: url('images/bg-01.jpg');")
+  .container-login100(style="background-image: url('/loginPubic/images/bg-01.jpg');")
     .wrap-login100.p-l-55.p-r-55.p-t-65.p-b-54
       form.login100-form.validate-form(action='/login' method='post')
+        input(type='hidden', name='_csrf', value=_csrf)
         img.logo(src='/loginPublic/images/logo-rec.png')
         .wrap-input100.validate-input.m-b-23(data-validate='Username is reauired')
           span.label-input100 Username
