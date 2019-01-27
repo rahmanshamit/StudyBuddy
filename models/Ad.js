@@ -7,8 +7,10 @@ const adSchema = new mongoose.Schema({
     // preciseLocation: String,
     // the location to plot on google maps
     location: String,
+
     // the location to plot on google maps
-    displayMessage: String
+    message: String,
+    course: String
 
 }, { timestamps: true });
 

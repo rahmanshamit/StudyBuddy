@@ -153,6 +153,7 @@ app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userControl
 // KITSILANO 4
 app.get('/map', mapController.getMap);
 app.get('/findabuddy', adController.getFindabuddy);
+app.post('/findabuddy', adController.postAd);
 app.use(express.static('public'));
 
 /**
