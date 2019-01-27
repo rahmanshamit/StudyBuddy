@@ -1,3 +1,6 @@
+// KITSILANO 4
+const mapController = require('./controllers/map');
+
 /**
  * Module dependencies.
  */
@@ -102,6 +105,7 @@ app.use((req, res, next) => {
   res.locals.user = req.user;
   next();
 });
+
 app.use((req, res, next) => {
   // After successful login, redirect back to the intended page
   if (!req.user
@@ -109,13 +113,14 @@ app.use((req, res, next) => {
     && req.path !== '/signup'
     && !req.path.match(/^\/auth/)
     && !req.path.match(/\./)) {
-    req.session.returnTo = req.originalUrl;
+    req.session.returnTo = './map';
   } else if (req.user
     && (req.path === '/account' || req.path.match(/^\/api/))) {
-    req.session.returnTo = req.originalUrl;
+    req.session.returnTo = './map';
   }
   next();
 });
+
 app.use('/', express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 }));
 app.use('/js/lib', express.static(path.join(__dirname, 'node_modules/popper.js/dist/umd'), { maxAge: 31557600000 }));
 app.use('/js/lib', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/js'), { maxAge: 31557600000 }));
@@ -142,6 +147,10 @@ app.post('/account/profile', passportConfig.isAuthenticated, userController.post
 app.post('/account/password', passportConfig.isAuthenticated, userController.postUpdatePassword);
 app.post('/account/delete', passportConfig.isAuthenticated, userController.postDeleteAccount);
 app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userController.getOauthUnlink);
+
+
+// KITSILANO 4
+app.get('/map', mapController.getMap);
 
 /**
  * API examples routes.
