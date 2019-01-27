@@ -1,128 +1,114 @@
-//- extends ../layout
-
-//- block content
-//-   .pb-2.mt-2.mb-4.border-bottom
-//-     h3 Sign in
-//-   form(method='POST')
-//-     input(type='hidden', name='_csrf', value=_csrf)
-//-     .form-group.row
-//-       label.col-md-3.col-form-label.font-weight-bold.text-right(for='email') Email
-//-       .col-md-7
-//-         input.form-control(type='email', name='email', id='email', placeholder='Email', autofocus, autocomplete='email', required)
-//-     .form-group.row
-//-       label.col-md-3.col-form-label.font-weight-bold.text-right(for='password') Password
-//-       .col-md-7
-//-         input.form-control(type='password', name='password', id='password', placeholder='Password', autocomplete='current-password', required)
-//-     .form-group
-//-       .offset-sm-3.col-md-7.pl-2
-//-         button.col-md-3.btn.btn-primary(type='submit')
-//-           i.far.fa-user.fa-sm
-//-           | Login
-//-         a.btn.btn-link(href='/forgot') Forgot your password?
-//-     .form-group
-//-       .offset-sm-3.col-md-7.pl-2
-//-         hr
-//-     .form-group
-//-       .offset-sm-3.col-md-7.pl-2
-//-         a.btn.btn-block.btn-snapchat.btn-social(href='/auth/snapchat')
-//-           i.fab.fa-snapchat-ghost.fa-sm
-//-           | Sign in with Snapchat
-//-         a.btn.btn-block.btn-facebook.btn-social(href='/auth/facebook')
-//-           i.fab.fa-facebook-f.fa-sm
-//-           | Sign in with Facebook
-//-         a.btn.btn-block.btn-twitter.btn-social(href='/auth/twitter')
-//-           i.fab.fa-twitter.fa-sm
-//-           | Sign in with Twitter
-//-         a.btn.btn-block.btn-google.btn-social(href='/auth/google')
-//-           i.fab.fa-google-plus-g.fa-xs
-//-           | Sign in with Google
-//-         a.btn.btn-block.btn-github.btn-social(href='/auth/github')
-//-           i.fab.fa-github.fa-sm
-//-           | Sign in with GitHub
-//-         a.btn.btn-block.btn-linkedin.btn-social(href='/auth/linkedin')
-//-           i.fab.fa-linkedin-in.fa-sm
-//-           | Sign in with LinkedIn
-//-         a.btn.btn-block.btn-instagram.btn-social(href='/auth/instagram')
-//-           i.fab.fa-instagram.fa-sm
-//-           | Sign in with Instagram
+extends ../layout
+block content
+  .pb-2.mt-2.mb-4.border-bottom
+    h3 Sign in
+  form(method='POST')
+    input(type='hidden', name='_csrf', value=_csrf)
+    .form-group.row
+      label.col-md-3.col-form-label.font-weight-bold.text-right(for='email') Email
+      .col-md-7
+        input.form-control(type='email', name='email', id='email', placeholder='Email', autofocus, autocomplete='email', required)
+    .form-group.row
+      label.col-md-3.col-form-label.font-weight-bold.text-right(for='password') Password
+      .col-md-7
+        input.form-control(type='password', name='password', id='password', placeholder='Password', autocomplete='current-password', required)
+    .form-group
+      .offset-sm-3.col-md-7.pl-2
+        button.col-md-3.btn.btn-primary(type='submit')
+          i.far.fa-user.fa-sm
+          | Login
+        a.btn.btn-link(href='/forgot') Forgot your password?
+    .form-group
+      .offset-sm-3.col-md-7.pl-2
+        hr
+    .form-group
+      .offset-sm-3.col-md-7.pl-2
+        a.btn.btn-block.btn-snapchat.btn-social(href='/auth/snapchat')
+          i.fab.fa-snapchat-ghost.fa-sm
+          | Sign in with Snapchat
+        a.btn.btn-block.btn-facebook.btn-social(href='/auth/facebook')
+          i.fab.fa-facebook-f.fa-sm
+          | Sign in with Facebook
+        a.btn.btn-block.btn-google.btn-social(href='/auth/google')
+          i.fab.fa-google-plus-g.fa-xs
+          | Sign in with Google
 
 
-
-doctype html
-head
-  title LoginPublic V4
-  meta(charset='UTF-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1')
-  // ===============================================================================================
-  link(rel='icon' type='image/png' href='/loginPublic/images/icons/favicon.ico')
-  // ===============================================================================================
-  link(rel='stylesheet' type='text/css' href='/loginPublic/vendor/bootstrap/css/bootstrap.min.css')
-  // ===============================================================================================
-  link(rel='stylesheet' type='text/css' href='/loginPublic/fonts/font-awesome-4.7.0/css/font-awesome.min.css')
-  // ===============================================================================================
-  link(rel='stylesheet' type='text/css' href='/loginPublic/fonts/iconic/css/material-design-iconic-font.min.css')
-  // ===============================================================================================
-  link(rel='stylesheet' type='text/css' href='/loginPublic/vendor/animate/animate.css')
-  // ===============================================================================================
-  link(rel='stylesheet' type='text/css' href='/loginPublic/vendor/css-hamburgers/hamburgers.min.css')
-  // ===============================================================================================
-  link(rel='stylesheet' type='text/css' href='/loginPublic/vendor/animsition/css/animsition.min.css')
-  // ===============================================================================================
-  link(rel='stylesheet' type='text/css' href='/loginPublic/vendor/select2/select2.min.css')
-  // ===============================================================================================
-  link(rel='stylesheet' type='text/css' href='/loginPublic/vendor/daterangepicker/daterangepicker.css')
-  // ===============================================================================================
-  link(rel='stylesheet' type='text/css' href='/loginPublic/css/util.css')
-  link(rel='stylesheet' type='text/css' href='/loginPublic/css/main.css')
-  // ===============================================================================================
-.limiter
-  .container-login100(style="background-image: url('images/bg-01.jpg');")
-    .wrap-login100.p-l-55.p-r-55.p-t-65.p-b-54
-      form.login100-form.validate-form
-        img.logo(src='/loginPublic/images/logo-rec.png')
-        .wrap-input100.validate-input.m-b-23(data-validate='Username is required')
-          span.label-input100 Username
-          input.input100(type='text' name='username' placeholder='Type your username')
-          span.focus-input100(data-symbol='')
-        .wrap-input100.validate-input(data-validate='Password is required')
-          span.label-input100 Password
-          input.input100(type='password' name='pass' placeholder='Type your password')
-          span.focus-input100(data-symbol='')
-        .text-right.p-t-8.p-b-31
-          a(href='/forgot')
-            | Forgot password?
-        .container-login100-form-btn
-          .wrap-login100-form-btn
-            .login100-form-bgbtn
-            button.login100-form-btn
-              | Login
-        .txt1.text-center.p-t-54.p-b-20
-          span
-            | Sign Up Using
-        .flex-c-m
-          a.login100-social-item.bg1(href='/auth/facebook')
-            i.fa.fa-facebook
-          a.login100-social-item.bg2(href='/auth/twitter')
-            i.fa.fa-twitter
-          a.login100-social-item.bg3(href='/auth/google')
-            i.fa.fa-google
-        .flex-col-c.p-t-155
-          a.txt2(href='/')
-            |Or Sign Up With Email
-#dropDownSelect1
-// ===============================================================================================
-script(src='/loginPublic/vendor/jquery/jquery-3.2.1.min.js')
-// ===============================================================================================
-script(src='/loginPublic/vendor/animsition/js/animsition.min.js')
-// ===============================================================================================
-script(src='/loginPublic/vendor/bootstrap/js/popper.js')
-script(src='/loginPublic/vendor/bootstrap/js/bootstrap.min.js')
-// ===============================================================================================
-script(src='/loginPublic/vendor/select2/select2.min.js')
-// ===============================================================================================
-script(src='/loginPublic/vendor/daterangepicker/moment.min.js')
-script(src='/loginPublic/vendor/daterangepicker/daterangepicker.js')
-// ===============================================================================================
-script(src='/loginPublic/vendor/countdowntime/countdowntime.js')
-// ===============================================================================================
-script(src='/loginPublic/js/main.js')
+//- doctype html
+//- head
+//-   title LoginPublic V4
+//-   meta(charset='UTF-8')
+//-   meta(name='viewport' content='width=device-width, initial-scale=1')
+//-   // ===============================================================================================
+//-   link(rel='icon' type='image/png' href='/loginPublic/images/icons/favicon.ico')
+//-   // ===============================================================================================
+//-   link(rel='stylesheet' type='text/css' href='/loginPublic/vendor/bootstrap/css/bootstrap.min.css')
+//-   // ===============================================================================================
+//-   link(rel='stylesheet' type='text/css' href='/loginPublic/fonts/font-awesome-4.7.0/css/font-awesome.min.css')
+//-   // ===============================================================================================
+//-   link(rel='stylesheet' type='text/css' href='/loginPublic/fonts/iconic/css/material-design-iconic-font.min.css')
+//-   // ===============================================================================================
+//-   link(rel='stylesheet' type='text/css' href='/loginPublic/vendor/animate/animate.css')
+//-   // ===============================================================================================
+//-   link(rel='stylesheet' type='text/css' href='/loginPublic/vendor/css-hamburgers/hamburgers.min.css')
+//-   // ===============================================================================================
+//-   link(rel='stylesheet' type='text/css' href='/loginPublic/vendor/animsition/css/animsition.min.css')
+//-   // ===============================================================================================
+//-   link(rel='stylesheet' type='text/css' href='/loginPublic/vendor/select2/select2.min.css')
+//-   // ===============================================================================================
+//-   link(rel='stylesheet' type='text/css' href='/loginPublic/vendor/daterangepicker/daterangepicker.css')
+//-   // ===============================================================================================
+//-   link(rel='stylesheet' type='text/css' href='/loginPublic/css/util.css')
+//-   link(rel='stylesheet' type='text/css' href='/loginPublic/css/main.css')
+//-   // ===============================================================================================
+//- .limiter
+//-   .container-login100(style="background-image: url('images/bg-01.jpg');")
+//-     .wrap-login100.p-l-55.p-r-55.p-t-65.p-b-54
+//-       form.login100-form.validate-form
+//-         img.logo(src='/loginPublic/images/logo-rec.png')
+//-         .wrap-input100.validate-input.m-b-23(data-validate='Username is required')
+//-           span.label-input100 Username
+//-           input.input100(type='text' name='username' placeholder='Type your username')
+//-           span.focus-input100(data-symbol='')
+//-         .wrap-input100.validate-input(data-validate='Password is required')
+//-           span.label-input100 Password
+//-           input.input100(type='password' name='pass' placeholder='Type your password')
+//-           span.focus-input100(data-symbol='')
+//-         .text-right.p-t-8.p-b-31
+//-           a(href='/forgot')
+//-             | Forgot password?
+//-         .container-login100-form-btn
+//-           .wrap-login100-form-btn
+//-             .login100-form-bgbtn
+//-             button.login100-form-btn
+//-               | Login
+//-         .txt1.text-center.p-t-54.p-b-20
+//-           span
+//-             | Sign Up Using
+//-         .flex-c-m
+//-           a.login100-social-item.bg1(href='/auth/facebook')
+//-             i.fa.fa-facebook
+//-           a.login100-social-item.bg2(href='/auth/twitter')
+//-             i.fa.fa-twitter
+//-           a.login100-social-item.bg3(href='/auth/google')
+//-             i.fa.fa-google
+//-         .flex-col-c.p-t-155
+//-           a.txt2(href='/')
+//-             |Or Sign Up With Email
+//- #dropDownSelect1
+//- // ===============================================================================================
+//- script(src='/loginPublic/vendor/jquery/jquery-3.2.1.min.js')
+//- // ===============================================================================================
+//- script(src='/loginPublic/vendor/animsition/js/animsition.min.js')
+//- // ===============================================================================================
+//- script(src='/loginPublic/vendor/bootstrap/js/popper.js')
+//- script(src='/loginPublic/vendor/bootstrap/js/bootstrap.min.js')
+//- // ===============================================================================================
+//- script(src='/loginPublic/vendor/select2/select2.min.js')
+//- // ===============================================================================================
+//- script(src='/loginPublic/vendor/daterangepicker/moment.min.js')
+//- script(src='/loginPublic/vendor/daterangepicker/daterangepicker.js')
+//- // ===============================================================================================
+//- script(src='/loginPublic/vendor/countdowntime/countdowntime.js')
+//- // ===============================================================================================
+//- script(src='/loginPublic/js/main.js')
