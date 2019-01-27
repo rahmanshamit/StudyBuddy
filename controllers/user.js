@@ -30,22 +30,34 @@ exports.postLogin = (req, res, next) => {
   req.sanitize('email').normalizeEmail({ gmail_remove_dots: false });
 
   const errors = req.validationErrors();
+  console.log('Got a login request!');
 
   if (errors) {
+    console.log('first erro block');
     req.flash('errors', errors);
     return res.redirect('/login');
   }
 
   passport.authenticate('local', (err, user, info) => {
-    if (err) { return next(err); }
+      if (err) {
+          console.log('Got a login error!');
+          console.log(errors)
+          return next(err);
+    }
     if (!user) {
       req.flash('errors', info);
+      console.log('Got a login error!');
       return res.redirect('/login');
     }
+
     req.logIn(user, (err) => {
-      if (err) { return next(err); }
+        if (err) {
+            console.log('Got a login error!');
+            return next(err);
+        }
       req.flash('success', { msg: 'Success! You are logged in.' });
-      res.redirect(req.session.returnTo || '/');
+        console.log('Redirecting to map');
+        res.redirect('/map');
     });
   })(req, res, next);
 };

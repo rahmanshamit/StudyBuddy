@@ -1,5 +1,6 @@
 // KITSILANO 4
 const mapController = require('./controllers/map');
+const adController = require('./controllers/ad');
 
 /**
  * Module dependencies.
@@ -28,7 +29,7 @@ const upload = multer({ dest: path.join(__dirname, 'uploads') });
 /**
  * Load environment variables from .env file, where API keys and passwords are configured.
  */
-dotenv.load({ path: '.env.example' });
+dotenv.load({ path: '.env' });
 
 /**
  * Controllers (route handlers).
@@ -54,7 +55,7 @@ const app = express();
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useNewUrlParser', true);
-mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect(process.env.MONGODB_URI,{ server: { ssl: true }});
 mongoose.connection.on('error', (err) => {
   console.error(err);
   console.log('%s MongoDB connection error. Please make sure MongoDB is running.', chalk.red('✗'));
@@ -113,10 +114,10 @@ app.use((req, res, next) => {
     && req.path !== '/signup'
     && !req.path.match(/^\/auth/)
     && !req.path.match(/\./)) {
-    req.session.returnTo = './map';
+    req.session.returnTo = '/map';
   } else if (req.user
     && (req.path === '/account' || req.path.match(/^\/api/))) {
-    req.session.returnTo = './map';
+    req.session.returnTo = '/map';
   }
   next();
 });
@@ -151,6 +152,9 @@ app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userControl
 
 // KITSILANO 4
 app.get('/map', mapController.getMap);
+app.get('/findabuddy', adController.getFindabuddy);
+app.post('/findabuddy', adController.postAd);
+app.use(express.static('public'));
 
 /**
  * API examples routes.
@@ -163,12 +167,9 @@ app.get('/api/steam', passportConfig.isAuthenticated, passportConfig.isAuthorize
 app.get('/api/stripe', apiController.getStripe);
 app.post('/api/stripe', apiController.postStripe);
 app.get('/api/scraping', apiController.getScraping);
-app.get('/api/twilio', apiController.getTwilio);
-app.post('/api/twilio', apiController.postTwilio);
 app.get('/api/clockwork', apiController.getClockwork);
 app.post('/api/clockwork', apiController.postClockwork);
 app.get('/api/foursquare', passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.getFoursquare);
-app.get('/api/tumblr', passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.getTumblr);
 app.get('/api/facebook', passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.getFacebook);
 app.get('/api/github', passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.getGithub);
 app.get('/api/twitter', passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.getTwitter);

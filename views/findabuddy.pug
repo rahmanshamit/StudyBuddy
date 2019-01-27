@@ -1,0 +1,109 @@
+block content
+  .pb-2.mt-2.mb-4.border-bottom
+    h3 Make A Study-Buddy Posting
+  form(method='POST')
+    input(type='hidden', name='_csrf', value=_csrf)
+    .form-group.row
+      label.col-md-3.col-form-label.font-weight-bold.text-right(for='messsage') Message
+      .col-md-7
+        input.form-control(type='message', name='message', id='message', placeholder='Message', autofocus, required)
+    .form-group.row
+      label.col-md-3.col-form-label.font-weight-bold.text-right(for='') Course
+      .col-md-7
+        input.form-control(type='course', name='course', id='course', placeholder='Course')
+    .form-group
+      .offset-sm-3.col-md-7.pl-2
+        button.col-md-3.btn.btn-primary(type='submit')
+          i.far.fa-user.fa-sm
+          | Post
+    .form-group
+      .offset-sm-3.col-md-7.pl-2
+        hr
+
+//- doctype html
+//- head
+//-   title Contact V3
+//-   meta(charset='UTF-8')
+//-   meta(name='viewport' content='width=device-width, initial-scale=1')
+//-   // ===============================================================================================
+//-   link(rel='icon' type='image/png' href='/FindABuddy/images/icons/favicon.ico')
+//-   // ===============================================================================================
+//-   link(rel='stylesheet' type='text/css' href='/FindABuddy/vendor/bootstrap/css/bootstrap.min.css')
+//-   // ===============================================================================================
+//-   link(rel='stylesheet' type='text/css' href='/FindABuddy/fonts/font-awesome-4.7.0/css/font-awesome.min.css')
+//-   // ===============================================================================================
+//-   link(rel='stylesheet' type='text/css' href='/FindABuddy/vendor/animate/animate.css')
+//-   // ===============================================================================================
+//-   link(rel='stylesheet' type='text/css' href='/FindABuddy/vendor/css-hamburgers/hamburgers.min.css')
+//-   // ===============================================================================================
+//-   link(rel='stylesheet' type='text/css' href='/FindABuddy/vendor/select2/select2.min.css')
+//-   // ===============================================================================================
+//-   link(rel='stylesheet' type='text/css' href='/FindABuddy/css/util.css')
+//-   link(rel='stylesheet' type='text/css' href='/FindABuddy/css/FindABuddy.css')
+//-   // ===============================================================================================
+//- .bg-contact3(style="background-image: url('images/bg-01.jpg');")
+//-   .container-contact3
+//-     .wrap-contact3
+//-       form.contact3-form.validate-form
+//-         form.login100-form.validate-form(action='/findabuddy' method='post')
+//-         span.contact3-form-title
+//-           | Find A Buddy
+//-         .wrap-contact3-form-radio
+//-           .contact3-form-radio.m-r-42
+//-             input#radio1.input-radio3(type='radio' name='choice' value='say-hi' checked='checked')
+//-             label.label-radio3(for='radio1')
+//-               | Current Location
+//-           .contact3-form-radio
+//-             input#radio2.input-radio3(type='radio' name='choice' value='get-quote')
+//-             label.label-radio3(for='radio2')
+//-               | Give me Map!
+//-         .wrap-input3.validate-input(data-validate='Name is required')
+//-           input.input3(type='text' name='name' placeholder='Your Name')
+//-           span.focus-input3
+//-         .wrap-input3.validate-input(data-validate='Course is required: (example: MATH 100)')
+//-           input.input3(type='text' name='course' placeholder='Add a New Course')
+//-           span.focus-input3
+//-         .wrap-input3.input3-select
+//-           div
+//-             select.selection-2(name='service')
+//-               option Needed Services
+//-               option eCommerce Bussiness
+//-               option UI/UX Design
+//-               option Online Services
+//-           span.focus-input3
+//-         .wrap-input3.input3-select
+//-           div
+//-             select.selection-2(name='budget')
+//-               option Budget
+//-               option 1500 $
+//-               option 2000 $
+//-               option 3000 $
+//-           span.focus-input3
+//-         .wrap-input3.validate-input(data-validate='Message is required')
+//-           textarea.input3(name='message' placeholder='Any additional info, like availability and exact location, goes here...')
+//-           span.focus-input3
+//-         .container-contact3-form-btn
+//-           button.contact3-form-btn(type 'submit')
+//-             | Submit
+//- #dropDownSelect1
+//- // ===============================================================================================
+//- script(src='vendor/jquery/jquery-3.2.1.min.js')
+//- // ===============================================================================================
+//- script(src='vendor/bootstrap/js/popper.js')
+//- script(src='vendor/bootstrap/js/bootstrap.min.js')
+//- // ===============================================================================================
+//- script(src='vendor/select2/select2.min.js')
+//- script.
+//-   $(".selection-2").select2({
+//-   minimumResultsForSearch: 20,
+//-   dropdownParent: $('#dropDownSelect1')
+//-   });
+//- // ===============================================================================================
+//- script(src='js/main.js')
+//- // Global site tag (gtag.js) - Google Analytics
+//- script(async='' src='https://www.googletagmanager.com/gtag/js?id=UA-23581568-13')
+//- script.
+//-   window.dataLayer = window.dataLayer || [];
+//-   function gtag(){dataLayer.push(arguments);}
+//-   gtag('js', new Date());
+//-   gtag('config', 'UA-23581568-13');
