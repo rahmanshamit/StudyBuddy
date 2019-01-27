@@ -2,6 +2,7 @@ FROM node:8-slim
 
 WORKDIR /starter
 ENV NODE_ENV development
+ENV MONGODB_URI mongodb://study-buddy:2xuVDrDNrE5KwiFE0VzKDBPQMYxKcf4hd5b1WIQttKAZI9ajtwmBsTyK32fqAq3MFq4wxyJEOfc3e36D0VjLiw==@study-buddy.documents.azure.com:10255/foo?ssl=true&replicaSet=globaldb
 
 COPY package.json /starter/package.json
 
