@@ -98,10 +98,10 @@ textarea:focus, input:focus {
   border-color: transparent !important;
 }
 
-input:focus::-webkit-input-placeholder { color:transparent; }
-input:focus:-moz-placeholder { color:transparent; }
-input:focus::-moz-placeholder { color:transparent; }
-input:focus:-ms-input-placeholder { color:transparent; }
+input:focus::-webkit-input-placeholder { color:whitesmoke; }
+input:focus:-moz-placeholder { color:whitesmoke; }
+input:focus::-moz-placeholder { color:whitesmoke; }
+input:focus:-ms-input-placeholder { color:whitesmoke; }
 
 textarea:focus::-webkit-input-placeholder { color:transparent; }
 textarea:focus:-moz-placeholder { color:transparent; }
@@ -218,7 +218,7 @@ iframe {
 .label-input100 {
   font-family: Poppins-Regular;
   font-size: 14px;
-  color: #333333;
+  color: whitesmoke;
   line-height: 1.5;
   padding-left: 7px;
 }
@@ -226,7 +226,7 @@ iframe {
 .input100 {
   font-family: Poppins-Medium;
   font-size: 16px;
-  color: #333333;
+  color: whitesmoke;
   line-height: 1.2;
 
   display: block;
