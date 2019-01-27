@@ -54,4 +54,4 @@ exports.postAd = (req, res, next) => {
         return res.redirect('/map');
     }
 
-})
+};
