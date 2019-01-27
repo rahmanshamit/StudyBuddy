@@ -113,14 +113,13 @@ app.use((req, res, next) => {
     && req.path !== '/signup'
     && !req.path.match(/^\/auth/)
     && !req.path.match(/\./)) {
-      req.session.returnTo = '/map';
+    req.session.returnTo = './map';
   } else if (req.user
     && (req.path === '/account' || req.path.match(/^\/api/))) {
-      req.session.returnTo = './map';
+    req.session.returnTo = './map';
   }
   next();
 });
-
 
 app.use('/', express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 }));
 app.use('/js/lib', express.static(path.join(__dirname, 'node_modules/popper.js/dist/umd'), { maxAge: 31557600000 }));
@@ -153,7 +152,6 @@ app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userControl
 // KITSILANO 4
 app.get('/map', mapController.getMap);
 app.use(express.static('public'));
-
 
 /**
  * API examples routes.
