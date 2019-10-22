@@ -13,8 +13,6 @@ log in, profile, user's current location, works.
 I would like to implement a chat aspect to it, so that the user can message other students who show 
 up live on the map if they are online, and make posts about future study plans let users collaborate. 
 
-Find screenshots here:
-https://rahmanshamit.imgur.com/all/?third_party=1
 
 
 
