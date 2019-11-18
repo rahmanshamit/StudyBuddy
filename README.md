@@ -6,11 +6,9 @@ The web-app lets a user sign up and find students near them studying the same co
 the user find study partners. 
 The idea is to promote collaborative learning.
 
-This was my first time working with express, mongoDB, pug and Google api. I spent most of my time on the backend
-figuring out how express and Google maps api works. For now there are only dummy students showing up on the map, but
-log in, profile, user's current location, works.
+This was my first time working with express, mongoDB, pug and Google api. I spent most of my time figuring out how express and Google maps api works. For now there are only dummy students showing up on the map.
 
-I would like to implement a chat aspect to it, so that the user can message other students who show 
+I would have liked to implement a chat aspect to it, so that the user can message other students who show 
 up live on the map if they are online, and make posts about future study plans let users collaborate. 
 
 
